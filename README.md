@@ -61,17 +61,22 @@ django_template/
    pip install -r requirements.txt
    ```
 
-5. Realize as migrações iniciais:
+5. Entre no app:
+   ```bash
+   cd Pesquisa
+   ```
+
+6. Realize as migrações iniciais:
    ```bash
    python manage.py migrate
    ```
 
-6. Inicie o servidor de desenvolvimento:
+7. Inicie o servidor de desenvolvimento:
    ```bash
    python manage.py runserver
    ```
 
-7. Acesse a aplicação no navegador via `http://127.0.0.1:8000/`.
+8. Acesse a aplicação no navegador via `http://127.0.0.1:8000/`.
 
 ## Estrutura de Diretórios
 
