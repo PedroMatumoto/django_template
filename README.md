@@ -6,7 +6,7 @@ Este é um projeto template para aplicações Django, criado para servir como po
 
 ```bash
 django_template/
-├── app/
+├── polls/
 │   ├── migrations/
 │   ├── __init__.py
 │   ├── admin.py
@@ -21,7 +21,7 @@ django_template/
     ├── templates/
         ├── base.html
         └── index.html
-├── django_template/
+├── mysite/
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
