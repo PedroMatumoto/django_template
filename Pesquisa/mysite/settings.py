@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'polls',
+    'flags',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Flag System Configuration
+FLAG_USE_CDN = True
+FLAG_CDN_URL = 'https://flagicons.lipis.dev/flags/4x3/{code}.svg'
+FLAG_DEFAULT_SIZE = '24'
+FLAG_CACHE_TIMEOUT = 3600  # 1 hour in seconds

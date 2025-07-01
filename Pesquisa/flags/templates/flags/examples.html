@@ -1,0 +1,238 @@
+{% load flag_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag System Examples</title>
+    <link rel="stylesheet" href="{% static 'flags/css/flags.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .flag-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .flag-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #fafafa;
+        }
+        
+        .flag-icon {
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .flag-emoji {
+            display: inline-block;
+        }
+        
+        .size-demo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .country-selector {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            min-width: 200px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .code {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏳️ Django Flag System Examples</h1>
+    
+    <div class="container">
+        <h2>Basic Flag Icons</h2>
+        <p>Display flags using the <code>{% templatetag openblock %} flag_icon {% templatetag closeblock %}</code> template tag:</p>
+        
+        <div class="flag-examples">
+            <div class="flag-item">
+                {% flag_icon 'BR' %} Brazil
+            </div>
+            <div class="flag-item">
+                {% flag_icon 'US' %} United States
+            </div>
+            <div class="flag-item">
+                {% flag_icon 'FR' %} France
+            </div>
+            <div class="flag-item">
+                {% flag_icon 'DE' %} Germany
+            </div>
+            <div class="flag-item">
+                {% flag_icon 'JP' %} Japan
+            </div>
+            <div class="flag-item">
+                {% flag_icon 'CN' %} China
+            </div>
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %} flag_icon 'BR' {% templatetag closeblock %} Brazil<br>
+            {% templatetag openblock %} flag_icon 'US' {% templatetag closeblock %} United States<br>
+            {% templatetag openblock %} flag_icon 'FR' {% templatetag closeblock %} France
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Different Sizes</h2>
+        <p>Flags can be displayed in different sizes:</p>
+        
+        <div class="size-demo">
+            {% flag_icon 'BR' size='16' %} 16px
+        </div>
+        <div class="size-demo">
+            {% flag_icon 'BR' size='24' %} 24px (default)
+        </div>
+        <div class="size-demo">
+            {% flag_icon 'BR' size='32' %} 32px
+        </div>
+        <div class="size-demo">
+            {% flag_icon 'BR' size='48' %} 48px
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %} flag_icon 'BR' size='16' {% templatetag closeblock %}<br>
+            {% templatetag openblock %} flag_icon 'BR' size='24' {% templatetag closeblock %}<br>
+            {% templatetag openblock %} flag_icon 'BR' size='32' {% templatetag closeblock %}<br>
+            {% templatetag openblock %} flag_icon 'BR' size='48' {% templatetag closeblock %}
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Custom Styling</h2>
+        <p>Add custom CSS classes and styles:</p>
+        
+        <div class="size-demo">
+            {% flag_icon 'FR' size='32' style='border-radius: 50%; border: 2px solid #333;' %} Rounded with border
+        </div>
+        <div class="size-demo">
+            {% flag_icon 'DE' size='32' style='filter: grayscale(100%);' %} Grayscale filter
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %} flag_icon 'FR' size='32' style='border-radius: 50%; border: 2px solid #333;' {% templatetag closeblock %}<br>
+            {% templatetag openblock %} flag_icon 'DE' size='32' style='filter: grayscale(100%);' {% templatetag closeblock %}
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Flag Emoji Filter</h2>
+        <p>Use the <code>flag_emoji</code> filter to display emoji flags:</p>
+        
+        <div class="size-demo">
+            {{ 'BR'|flag_emoji }} Brazil
+        </div>
+        <div class="size-demo">
+            {{ 'US'|flag_emoji }} United States
+        </div>
+        <div class="size-demo">
+            {{ 'JP'|flag_emoji }} Japan
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %}{% templatetag openblock %} 'BR'|flag_emoji {% templatetag closeblock %}{% templatetag closeblock %} Brazil<br>
+            {% templatetag openblock %}{% templatetag openblock %} 'US'|flag_emoji {% templatetag closeblock %}{% templatetag closeblock %} United States<br>
+            {% templatetag openblock %}{% templatetag openblock %} 'JP'|flag_emoji {% templatetag closeblock %}{% templatetag closeblock %} Japan
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Country Selector</h2>
+        <p>Use the country selector for forms:</p>
+        
+        <form>
+            <label for="country">Choose your country:</label><br><br>
+            {% country_selector name='country' css_class='country-selector' %}
+        </form>
+        
+        <div class="code">
+            {% templatetag openblock %} country_selector name='country' css_class='country-selector' {% templatetag closeblock %}
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Country List</h2>
+        <p>Display a list of countries with flags:</p>
+        
+        {% country_flag_list limit=20 as countries %}
+        <div class="flag-examples">
+            {% for country in countries %}
+                <div class="flag-item">
+                    {% flag_icon country.code %} {{ country.name }}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %} country_flag_list limit=20 as countries {% templatetag closeblock %}<br>
+            {% templatetag openblock %} for country in countries {% templatetag closeblock %}<br>
+            &nbsp;&nbsp;{% templatetag openblock %} flag_icon country.code {% templatetag closeblock %} {% templatetag openblock %}{% templatetag openblock %} country.name {% templatetag closeblock %}{% templatetag closeblock %}<br>
+            {% templatetag openblock %} endfor {% templatetag closeblock %}
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Fallback Behavior</h2>
+        <p>Flags gracefully fall back to emoji when CDN is unavailable:</p>
+        
+        <div class="size-demo">
+            {% flag_icon 'XX' %} Unknown country (shows default flag)
+        </div>
+        <div class="size-demo">
+            {% flag_icon 'ZZ' fallback_emoji=False %} No fallback (empty if CDN fails)
+        </div>
+        
+        <div class="code">
+            {% templatetag openblock %} flag_icon 'XX' {% templatetag closeblock %} Unknown country<br>
+            {% templatetag openblock %} flag_icon 'ZZ' fallback_emoji=False {% templatetag closeblock %} No fallback
+        </div>
+    </div>
+</body>
+</html>

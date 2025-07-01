@@ -1,0 +1,9 @@
+{% load flag_tags %}
+<select name="{{ name }}" class="country-selector {{ css_class }}" {% if required %}required{% endif %}>
+    <option value="">Select a country...</option>
+    {% for country in countries %}
+        <option value="{{ country.code }}" {% if country.code == selected_code %}selected{% endif %}>
+            {{ country.flag_emoji }} {{ country.name }}
+        </option>
+    {% endfor %}
+</select>

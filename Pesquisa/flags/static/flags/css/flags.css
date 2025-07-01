@@ -1,0 +1,150 @@
+/* Flag Icon Styles */
+
+.flag-icon {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.flag-icon:hover {
+    transform: scale(1.1);
+}
+
+.flag-emoji {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "EmojiOne", sans-serif;
+    line-height: 1;
+}
+
+/* Responsive flag sizes */
+@media (max-width: 768px) {
+    .flag-icon,
+    .flag-emoji {
+        max-width: 24px;
+        max-height: 24px;
+    }
+}
+
+/* Country selector styles */
+.country-selector {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.2s ease;
+}
+
+.country-selector:focus {
+    outline: none;
+    border-color: #007cba;
+    box-shadow: 0 0 0 2px rgba(0, 124, 186, 0.2);
+}
+
+.country-selector option {
+    padding: 5px;
+}
+
+/* Flag grid layout */
+.flag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.flag-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fafafa;
+    transition: background-color 0.2s ease;
+}
+
+.flag-item:hover {
+    background: #f0f0f0;
+}
+
+/* Size variations */
+.flag-small {
+    width: 16px;
+    height: 16px;
+}
+
+.flag-medium {
+    width: 24px;
+    height: 24px;
+}
+
+.flag-large {
+    width: 32px;
+    height: 32px;
+}
+
+.flag-xlarge {
+    width: 48px;
+    height: 48px;
+}
+
+/* Special effects */
+.flag-rounded {
+    border-radius: 50%;
+}
+
+.flag-bordered {
+    border: 2px solid #333;
+}
+
+.flag-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.flag-grayscale {
+    filter: grayscale(100%);
+}
+
+.flag-sepia {
+    filter: sepia(100%);
+}
+
+/* Loading and error states */
+.flag-loading {
+    background: #f0f0f0;
+    border: 1px dashed #ccc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 10px;
+}
+
+.flag-error {
+    background: #ffe6e6;
+    border: 1px solid #ffccc7;
+    color: #d93025;
+}
+
+/* Accessibility */
+.flag-icon,
+.flag-emoji {
+    role: img;
+}
+
+/* Print styles */
+@media print {
+    .flag-icon {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    .flag-emoji {
+        color: #000;
+    }
+}
